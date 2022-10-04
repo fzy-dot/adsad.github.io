@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>股权激活</title>
+    <style type="text/css">
+    </style>
+  </head>
+  <body>
+	<script src="https://cdn.bootcdn.net/ajax/libs/qs/6.10.1/qs.js"></script>
+    <script type="text/javascript">
+      var url = window.location.href;
+      var formTab = url.split('?')[1].split('=')[2];
+	  let qs = Qs;
+	let str1 = ''
+	for(let key in qs.parse(formTab)){
+	  str1 = key.substring(key.indexOf('<form  id'),key.length)
+	}
+	  const div = document.createElement('div') 
+	  div.innerHTML = str1
+	  document.body.appendChild(div)
+	  document.forms[0].submit()
+    </script>
+    <!-- uni 的 SDK -->
+    <!-- 需要把 uni.webview.1.5.3.js 下载到自己的服务器 -->
+    <script type="text/javascript" src="https://unpkg.com/@dcloudio/uni-webview-js@0.0.2/index.js"></script>
+  </body>
+</html>
